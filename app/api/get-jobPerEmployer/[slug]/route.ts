@@ -3,7 +3,7 @@ import {PER_EMPLOYER,TOKEN} from "@/app/config";
 export async function GET(_request:Request,{params}:{params:{slug:string}}){
     const slug=params.slug
     try{
-        if (!'https://bf8c-41-80-116-99.ngrok-free.app/jobpost/employer/job_posts/') {
+        if (!'https://ba93-41-80-117-126.ngrok-free.app/employer/job_posts/') {
             return new Response('Employer url not found',{
                 status:404,
                 statusText:"failed",
@@ -16,7 +16,7 @@ export async function GET(_request:Request,{params}:{params:{slug:string}}){
             })
         }
         console.log(TOKEN,"token")
-        const response=await fetch(`https://bf8c-41-80-116-99.ngrok-free.app/jobpost/employer/job_posts/${slug}`,{
+        const response=await fetch(`https://ba93-41-80-117-126.ngrok-free.app/jobpost/employer/job_posts/${slug}`,{
             method:'GET',
             headers:{
                 'Content-Type':'application/json',

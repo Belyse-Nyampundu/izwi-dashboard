@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { RxDashboard, RxPerson, RxCounterClockwiseClock } from 'react-icons/rx';
 
 const Sidebar = () => {
-  const [activeNavItem, setActiveNavItem] = useState("/dasboard");
+  const [activeNavItem, setActiveNavItem] = useState("/dashboard");
 
   const handleNavItemClick = (item: string) => {
     setActiveNavItem(item);
@@ -13,6 +13,15 @@ const Sidebar = () => {
     <div className="h-screen w-120 bg-teal-600 fixed ">
        <img src="/images/huza.png" alt="Logo" className="ml-5 mb-28 w-64 h-20 mt-16 items-center" />
     <div className="mt-5 ">
+    <div className={`ml-8 mb-16 cursor-pointer ${ activeNavItem === '/' ? 'text-black' : 'text-white'}`}
+          onClick={() => handleNavItemClick('/dashboard')} >
+          <Link href="/dashboard">
+            <div className="flex "><RxDashboard size={24} className="mr-2" />
+              Dashboard
+            </div>
+          </Link>
+        </div>
+
     <div className={`ml-8 mb-16 cursor-pointer ${activeNavItem === '/person' ? 'text-black' : 'text-white' }`}
           onClick={() => handleNavItemClick('/postjob')}>
           

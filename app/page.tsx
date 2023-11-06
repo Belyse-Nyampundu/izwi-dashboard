@@ -27,7 +27,7 @@ const Home = () => {
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center text-4xl">
-        Loading, please wait... &#128522;
+     
       </div>
     );
   }
@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div className="h-screen flex items-center justify-center">
   <div className="text-center text-4xl text-primary">
-    {isUserLoggedIn ? 'Welcome back!' : 'Redirecting you to Log In page, just a moment...'}
+    {isUserLoggedIn ? '' : 'Redirecting you to Log In page, just a moment...'}
   </div>
 </div>
 

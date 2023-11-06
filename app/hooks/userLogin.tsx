@@ -24,7 +24,7 @@ const useLogin = () => {
     }
       setUser(response);
       cookie.set('sessionToken', response);
-      // toast('Logged in Successfully')
+      toast('Logged done')
       router.push('/jobPosting');
   };
   return { handleLogin, loading, user, error };

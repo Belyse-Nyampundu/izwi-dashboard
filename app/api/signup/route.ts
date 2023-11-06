@@ -1,15 +1,17 @@
 import {BASE_URL} from "@/app/config";
 
 export async function POST(request: Request) {
+  console.log(request,"request")
   try {
-    if (!BASE_URL) {
+    if (!'https://ba93-41-80-117-126.ngrok-free.app/user_registration/') {
       return new Response("Base URL not found", {
         status: 404,
         statusText: "Failed",
       });
     }
     const body = await request.json().then(response => response);
-    const result = await fetch(`${BASE_URL}`, {
+    console.log(body,"body")
+    const result = await fetch(`https://ba93-41-80-117-126.ngrok-free.app/user_registration/api/employer_register/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,12 +19,14 @@ export async function POST(request: Request) {
       body: JSON.stringify(body),
     });
     const user = await result.json();
+    console.log(result.status)
     return new Response(JSON.stringify(user), {
-      status: 201,
+      status: result.status,
       statusText: "Success",
     });
   } catch (error: any) {
-    return new Response(error.message, {
+    console.log(error,"error1")
+    return new Response(error, {
       status: 500,
       statusText: "Failed",
     });

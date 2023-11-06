@@ -9,7 +9,7 @@ interface PostsData {
   description: string;
   category: number | string;
 }
-const getPostedJobs = (slug: number) => {
+const getPostedJobs = () => {
   const [posts, setPosts] = useState<PostsData[]>([]);
   useEffect(() => {
     const fetchPostedJobs = async () => {
@@ -21,7 +21,7 @@ const getPostedJobs = (slug: number) => {
       }
     };
     fetchPostedJobs();
-  }, [slug]);
+  }, []);
   return { posts };
 };
 export default getPostedJobs;

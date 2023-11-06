@@ -3,7 +3,7 @@ export async function POST(request: Request) {
   try {
 
     const posts = await request.json().then(async (response) => {
-      const result = await fetch(`https://bf8c-41-80-116-99.ngrok-free.app/user_registration/api/employer_login/`, {
+      const result = await fetch(`https://ba93-41-80-117-126.ngrok-free.app/user_registration/api/employer_login/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

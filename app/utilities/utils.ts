@@ -20,7 +20,7 @@ export const loginUser = async (loginData: LoginData) => {
     const result = await response.json();
     return result;
   } catch (error) {
-    return { error: 'Logged in successfully.' };
+    return { error: 'Logged failed.' };
 
   }
 };
@@ -46,12 +46,22 @@ export const loginUser = async (loginData: LoginData) => {
         },
         body: JSON.stringify(formData),
       });
+
       const result = await response.json();
+      console.log(response,"result1")
+      result.success = response.status == 201 ? true : false
       return result;
     } catch (error: any) {
-      throw new Error(error.message);
+      console.log(error,"error2")
+      throw new Error(error);
     }
   };
+
+  
+
+
+
+
 export const getJobPosted= async()=>{
         const url ='/api/get-jobs/';
 try{

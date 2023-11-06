@@ -14,6 +14,8 @@ interface PostsData {
 
 const deleteJobPosted = () => {
   const [posts, setPosts] = useState<PostsData[]>([]);
+  const [selectedPosts, setSelectedPosts] = useState<number[]>([]);
+  
   const handleDelete = async (id: number) => {
     try {
       await deleteJob(id);
@@ -21,9 +23,9 @@ const deleteJobPosted = () => {
       console.log("Error deleting job posting:", error);
     }
   };
-
-  return { posts, handleDelete };
+  return { posts, selectedPosts, handleDelete, setSelectedPosts
 };
+}
 
 export default deleteJobPosted;
 

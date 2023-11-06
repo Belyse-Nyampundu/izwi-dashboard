@@ -1,6 +1,8 @@
+'use client'
 import { useState } from "react";
 import { registerUser } from "../utilities/utils";
-import router from "next/router";
+import { useRouter } from "next/navigation";
+
 
 interface FormData {
   email: string;
@@ -18,15 +20,24 @@ const useCreateUsers = () => {
   const [user, setUser] = useState<any>(null);
   const [error, setError] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+  const router = useRouter()
   const handleRegister = async (formData: FormData) => {
     try {
+
       const createdUser = await registerUser(formData);
-      setUser(createdUser);
-      setError('');
-      setMessage('Registration successful.');
-      router.replace('/login');
+      console.log(createdUser,"success")
+      if (createdUser.success === true){
+        setUser(createdUser);
+        setError('');
+        setMessage('Registration successful.');
+        router.push("/login")
+      }else{
+        setError(createdUser.message)
+      }
+   
     }
      catch (error) {
+      console.log(error,"error")
       setUser(null);
       setError('Registration failed. Please try again.');
       setMessage('');

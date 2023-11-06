@@ -1,9 +1,11 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import useCreateUsers from "../hooks/userRegister";
 import Link from "next/link";
+// import {useRouter} from "next/navigation";
+
 interface FormData {
   email: string;
   phone_number: string;
@@ -17,6 +19,7 @@ interface FormData {
 }
 const SignupPage = () => {
   const { handleRegister, user, error } = useCreateUsers();
+  // const router = useRouter()
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -31,6 +34,12 @@ const SignupPage = () => {
     national_identity: "",
   });
   const [passwordMatchError, setPasswordMatchError] = useState(false);
+  // useEffect(()=>{
+  //   if (user){
+  //     router.push("/login")
+  //   }
+  // },[user]
+  // )
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
