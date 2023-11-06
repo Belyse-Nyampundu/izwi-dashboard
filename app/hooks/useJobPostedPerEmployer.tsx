@@ -10,11 +10,13 @@ interface JobsData {
 }
 const getPostedJobsPerEmployer = (slug: string) => {
   const [posted, setPosted] = useState<JobsData[]>([]);
+  console.log(posted,"posted1")
   const [refreshToggle, setRefreshToggle] = useState(false)
 
   useEffect(() => {
     const fetchPostedJobs = async (employerNumber:string) => {
         const fetchedJobs = await getJobPostedPerEmployer(employerNumber);
+        console.log(fetchPostedJobs,"fetchedjobs")
           setPosted(fetchedJobs);
     };
     fetchPostedJobs(slug);
