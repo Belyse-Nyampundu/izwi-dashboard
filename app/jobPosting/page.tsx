@@ -11,7 +11,6 @@ import ReactPaginate from "react-paginate";
 const JobPosting = () => {
   const number = "+25462765272"
   const { posted } = getPostedJobsPerEmployer(number);
-  console.log(posted,"id")
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 3;
 
@@ -23,6 +22,8 @@ const JobPosting = () => {
 
   
 );
+console.log(filtered,"posted")
+
 const paginatedData = filtered.slice(
   currentPage * itemsPerPage,
   currentPage * itemsPerPage + itemsPerPage
